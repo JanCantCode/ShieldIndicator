@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "shieldindicator",
+  "version": "${version}",
+  "name": "ShieldIndicator",
+  "description": "",
+  "authors": ["JanCantCode", "Jan"],
+  "contact": {
+    "discord": "itisjan",
+    "repo": "https://github.com/itsja/ShieldIndicator"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/shieldindicator/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "tk.jandev.shieldindicator.client.ShieldIndicatorClient"
+    ],
+    "main": [
+      "tk.jandev.shieldindicator.ShieldIndicator"
+    ]
+  },
+  "mixins": [
+    "shieldindicator.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
