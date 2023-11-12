@@ -6,6 +6,7 @@ import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AxeItem;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -26,7 +27,7 @@ public abstract class InteractionManagerMixin {
     public void attackEntity(PlayerEntity player, Entity target, CallbackInfo ci) {
         if (target instanceof PlayerEntity playerEntity) {
             Vec3d relative = player.getPos().subtract(playerEntity.getPos());
-            if (ShieldIndicatorClient.wouldBreakShield(playerEntity, relative) && playerEntity.isBlocking()) {
+            if (ShieldIndicatorClient.wouldBreakShield(playerEntity, relative) && playerEntity.isBlocking() && player.getMainHandStack().getItem() instanceof AxeItem) {
                 ShieldIndicatorClient.INSTANCE.onShieldBreak(playerEntity);
             }
         }
